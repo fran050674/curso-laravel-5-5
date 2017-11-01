@@ -8,13 +8,17 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = [
-            'Ana',
-            'Jose',
-            'Juan',
-            'luis',
-            'Maria',
-        ];
+        if (request()->has('empty')) {
+            $users = [];
+        } else {
+            $users = [
+                'Ana',
+                'Jose',
+                'Juan',
+                'luis',
+                'Maria',
+            ];
+        }
 
         $title = 'Listado de usuarios.';
 
@@ -25,17 +29,17 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return "Mostrando detalle del usuario: {$id}";
+        return view('show', compact('id'));
     }
 
     public function create()
     {
-        return 'Creando nuevo usuario';
+        return view('create');
     }
 
     public function edit($id)
     {
-        return "Usuario con id: {$id}, ha sido editado correctamente.";
+        return view('edit', compact('id'));
     }
 
 }
