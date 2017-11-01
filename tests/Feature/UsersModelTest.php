@@ -12,7 +12,9 @@ class UsersModelTest extends TestCase
     {
         $this->get('/usuarios')
         ->assertStatus(200)
-        ->assertSee('Usuarios');
+        ->assertSee('Listado de usuarios.')
+        ->assertSee('Jose')
+        ->assertSee('Maria');
     }
 
     /** @test */

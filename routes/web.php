@@ -20,4 +20,3 @@ Route::get('/saludo/{name}/', 'WelcomeUserController@name');
 
 Route::get('/saludo/{name}/{nickname}', 'WelcomeUserController@nickname');
 
-
