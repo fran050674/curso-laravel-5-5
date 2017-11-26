@@ -24,22 +24,22 @@ class UserController extends Controller
 
         // dd(compact('users', 'title'));
 
-        return view('users', compact('users', 'title'));
+        return view('users.index', compact('users', 'title'));
     }
 
     public function show($id)
     {
-        return view('show', compact('id'));
+        return view('users.show', compact('id'));
     }
 
     public function create()
     {
-        return view('create');
+        return view('users.create');
     }
 
     public function edit($id)
     {
-        return view('edit', compact('id'));
+        return view('users.edit', compact('id'));
     }
 
 }
