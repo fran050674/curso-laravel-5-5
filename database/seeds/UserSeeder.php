@@ -14,13 +14,26 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $professionId = Profession::where('title', 'Diseñador web')->value('id');
+        $professionId = Profession::where('title', 'Desarrolador back-end')->value('id');
         // dd($professionId);
         User::create([
             'name' => 'Francisco Andrés',
             'email' => 'fran@correo.com',
             'password' => bcrypt('laravel'),
             'profession_id' => $professionId,
+            'is_admin' => true,
+        ]);
+        User::create([
+            'name' => 'Maria Lozano',
+            'email' => 'maria@correo.com',
+            'password' => bcrypt('laravel'),
+            'profession_id' => $professionId,
+        ]);
+        User::create([
+            'name' => 'Irene Andrés',
+            'email' => 'irene@correo.com',
+            'password' => bcrypt('laravel'),
+            'profession_id' => null,
         ]);
     }
 }

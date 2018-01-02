@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $casts = [
+        'is_admin' => 'boolean'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -27,6 +31,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function profession()
+    {
+        return $this->belongsTo(Profession::class);
+    }
+
     public static function findByEmail($email)
     {
         return static::where(compact('email'))->first();
@@ -34,6 +43,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->email === 'fran@correo.com';
+        return $this->is_admin;
     }
 }
