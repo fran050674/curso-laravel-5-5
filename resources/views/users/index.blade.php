@@ -6,20 +6,16 @@
 
     <h1>{{ $title }}</h1>
 
-    @if (! empty($users))
-        <ul>
-            @foreach ($users as $user)
-                <li>{{ $user }}</li>
-            @endforeach
-        </ul>
-    @else
-        <p>No hay usuarios registrados.</p>
-    @endif
-
+    <ul>
+        @forelse ($users as $user)
+            <li>{{ $user->name }}</li>
+        @empty
+            <li>No hay usuarios registrados.</li>
+        @endforelse
 @endsection
 
-@section('sidebar')
+{{-- @section('sidebar')
     @parent
     <h2>Barra lateral desde users</h2>
-@endsection
+@endsection --}}
 

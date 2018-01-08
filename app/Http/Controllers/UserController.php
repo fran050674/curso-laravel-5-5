@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function index()
     {
-        if (request()->has('empty')) {
+        //Listado dinámico de datos de la base de datos.
+        // $users = DB::table('users')->get();
+        $users = User::all();
+
+
+        //listado estático de datos
+        /*f (request()->has('empty')) {
             $users = [];
         } else {
             $users = [
@@ -18,7 +26,7 @@ class UserController extends Controller
                 'luis',
                 'Maria',
             ];
-        }
+        }*/
 
         $title = 'Listado de usuarios.';
 
