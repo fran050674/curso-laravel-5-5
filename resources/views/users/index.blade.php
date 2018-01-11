@@ -21,6 +21,7 @@
       <th scope="row">{{ $user->id }}</th>
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
+      <td><a href="{{ route('users.show', ['id' => $user->id]) }}">Ver detalles</a></td>
     </tr>
     @empty
         <p>No hay usuarios registrados.<p>

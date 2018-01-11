@@ -4,17 +4,19 @@ Route::get('/', function () {
     return view('layout');
 });
 
-Route::get('/usuarios', 'UserController@index');
+Route::get('/usuarios', 'UserController@index')->name('users');
 
 
 Route::get('/usuarios/{id}', 'UserController@show')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->name('users.show');
 
 Route::get('/usuarios/{id}/edit', 'UserController@edit')->where('id', '[0-9]+');
 
 
 Route::get('/usuarios/nuevo', 'UserController@create')
-    ->where('nuevo', '[a-z]+');
+    ->where('nuevo', '[a-z]+')
+    ->name('users.create');
 
 Route::get('/saludo/{name}/', 'WelcomeUserController@name');
 
