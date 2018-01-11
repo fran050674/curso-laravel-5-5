@@ -25,7 +25,7 @@
     <!-- Begin page content -->
   <main role="main" class="container">
     <div class="row mt-3">
-          <div class="col-8">
+          <div class="col-8 offset-2">
             @yield('content')
           </div>
           {{-- <div class="col-4">
