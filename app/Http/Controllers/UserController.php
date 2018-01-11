@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,9 +36,9 @@ class UserController extends Controller
         return view('users.index', compact('users', 'title'));
     }
 
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
+        // $user = User::findOrFail($id);
 
         // if ($user == null) {
         //     return response()->view('errors.404', [], 404);
