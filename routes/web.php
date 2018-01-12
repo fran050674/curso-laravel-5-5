@@ -18,7 +18,7 @@ Route::get('/usuarios/nuevo', 'UserController@create')
     ->where('nuevo', '[a-z]+')
     ->name('users.create');
 
-Route::get('/saludo/{name}/', 'WelcomeUserController@name');
+Route::post('/usuarios/crear', 'UserController@store');
 
 Route::get('/saludo/{name}/{nickname}', 'WelcomeUserController@nickname');
 
