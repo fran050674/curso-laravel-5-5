@@ -61,10 +61,26 @@ class UsersModelTest extends TestCase
     /** @test */
     function it_loads_the_new_users_page()
     {
-        $this->withoutExceptionHandling();
-
         $this->get('/usuarios/nuevo')
             ->assertStatus(200)
             ->assertSee('Crear usuario');
+    }
+
+    /** @test */
+    function it_creates_a_new_user()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->post('/usuarios/', [
+            'name' => 'Francisco Andres',
+            'email' => 'fran@correo.com',
+            'password' => 'laravel'
+        ])->assertRedirect('usuarios');
+
+        $this->assertDatabaseHas('users', [
+            'name' => 'Francisco Andres',
+            'email' => 'fran@correo.com',
+            // 'password' => 'laravel'
+        ]);
     }
 }
