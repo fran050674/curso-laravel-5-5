@@ -72,15 +72,15 @@ class UsersModelTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->post('/usuarios/', [
-            'name' => 'Francisco Andres',
+            'name' => 'Francisco Andrés',
             'email' => 'fran@correo.com',
             'password' => 'laravel'
         ])->assertRedirect('usuarios');
 
-        $this->assertDatabaseHas('users', [
-            'name' => 'Francisco Andres',
+        $this->assertCredentials([
+            'name' => 'Francisco Andrés',
             'email' => 'fran@correo.com',
-            // 'password' => 'laravel'
+            'password' => 'laravel',
         ]);
     }
 }

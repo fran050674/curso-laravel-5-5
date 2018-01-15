@@ -29,12 +29,12 @@
   </tbody>
 </table>
 
-    <ul>
+    {{-- <ul>
         @forelse ($users as $user)
             <li>{{ $user->name }} ({{ $user->email }})</li>
         @empty
             <li>No hay usuarios registrados.</li>
-        @endforelse
+        @endforelse --}}
 @endsection
     </div>
 
