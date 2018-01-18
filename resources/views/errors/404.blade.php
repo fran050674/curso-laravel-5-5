@@ -9,7 +9,7 @@
                         <h1 class="card-title" style="color: red; text-align: center;">¡ERROR 404!</h1>
                         <h3 class="card-title">Página no encontrada</h3>
                         <p class="card-text">Por favor, vuelva por donde ha venido, gracias.</p>
-                        <a href="{{ route('users') }}" class="btn btn-primary">Volver</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-primary">Volver</a>
                     </div>
                 </div>
 @endsection

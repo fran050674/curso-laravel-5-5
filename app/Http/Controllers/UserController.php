@@ -38,12 +38,6 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        // $user = User::findOrFail($id);
-
-        // if ($user == null) {
-        //     return response()->view('errors.404', [], 404);
-        // }
-
         return view('users.show', compact('user'));
     }
 
@@ -54,7 +48,17 @@ class UserController extends Controller
 
     public function store()
     {
-        $data = request()->all();
+        $data = request()->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio.'
+        ]);
+
+        /*if (empty($data['name'])) {
+            return redirect('usuarios/nuevo')->withErrors([
+                'name' => 'El campo nombre es obligatorio.'
+            ]);
+        }*/
 
         User::create([
             'name' => $data['name'],
@@ -62,12 +66,12 @@ class UserController extends Controller
             'password' =>bcrypt($data['password'])
         ]);
 
-        return redirect('usuarios');
+        return redirect()->route('users.index');
     }
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('users.edit', compact('id'));
+        return view('users.edit', ['user' => $user]);
     }
 
 }
